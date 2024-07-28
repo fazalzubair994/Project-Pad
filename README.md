@@ -5,7 +5,7 @@ Project-Pad is a desktop application designed to help users create, organize, an
 ## Features
 
 - **Create and Manage Tasks**: Add individual tasks or collections of tasks for larger projects.
-  ![New Tasks](https://github.com/user-attachments/assets/ccebac04-632a-4ba2-a808-599fb280359f)
+ ![HomePage](https://github.com/user-attachments/assets/f68b6aa5-c0ed-4933-9d85-fbe7bf34184b)
   
 - **Deadlines and Reminders**: Set deadlines and reminders for your tasks to stay on track.
   ![Deadlines and Reminders](https://github.com/user-attachments/assets/19091f5e-5c3f-45f8-abf9-687504a4b030)
