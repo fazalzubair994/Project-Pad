@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>E:\Practice\DotNetProject\USTAAD-Prog\Properties\PublishProfiles\ClickOnceProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="ButtonIco.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\ButtonTile.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\ColorPicker.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\CustomDatePicker.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\CustomPopup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\CustomTextBox.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\MoveControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\PickADate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MessegeBoxes\NoteWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\AppSettingsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Projects_Directory_Page.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\TodayTomorrowTasksListPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="ButtonIco.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\ButtonTile.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\ColorPicker.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\CustomDatePicker.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\CustomPopup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\CustomTextBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\MoveControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\PickADate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MessegeBoxes\NoteWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\AppSettingsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Projects_Directory_Page.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\TodayTomorrowTasksListPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resource_Dictionaries\LightMode.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resource_Dictionaries\NightMode.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resource_Dictionaries\temp.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

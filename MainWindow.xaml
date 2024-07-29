@@ -1,0 +1,118 @@
+﻿<Window x:Class="projectPad.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:projectPad"
+                xmlns:localControls="clr-namespace:projectPad.Controls" 
+        mc:Ignorable="d" Title="Project-Pad" BorderBrush="#FF7160E8" BorderThickness="1"
+        Background="{DynamicResource WindowBackground}" UseLayoutRounding="True"
+         Height="720" Width="1120" Icon="/ProjectPadIcon.png" Loaded="Window_Loaded" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" >
+    <WindowChrome.WindowChrome>
+        <WindowChrome x:Name="NotepadChrome" GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0"/>
+    </WindowChrome.WindowChrome>
+
+
+    <Grid x:Name="WindowGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <DockPanel  x:Name="RTitleBar" Background="{DynamicResource BackGroundColor}"  MouseLeftButtonDown="TitlebarMouseLeft_Down" Grid.ColumnSpan="2">
+
+          
+
+            <Button x:Name="CloseBtn" Style="{DynamicResource CloseButtonTemplate}"  DockPanel.Dock="Right" VerticalAlignment="Center" FontSize="11" FontFamily="./Fonts/#Segoe Fluent Icons"
+            Content="&#xe8bb;" Width="45" Click="CloseBtn_Click" Focusable="False" />
+
+            <Button x:Name="MaxBtn"  Style="{DynamicResource MaxMinButton}" Focusable="False"  DockPanel.Dock="Right" VerticalAlignment="Center" FontSize="12" FontFamily="./Fonts/#Segoe Fluent Icons" 
+ Content="&#xf16b;" Width="45" Click="MaxBtn_Click" />
+
+            <Button x:Name="MinBtn" Style="{DynamicResource MaxMinButton}" Focusable="False"  HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="13" FontFamily="./Fonts/#Segoe Fluent Icons" 
+Content="&#xe921;" Width="45" Click="MinBtn_Click" />
+        </DockPanel>
+        <Label x:Name="CollectionTitle" FontSize="14" Foreground="{DynamicResource TextColor}" Content="./Home-Page" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UseLayoutRounding="True" MouseLeftButtonDown="TitlebarMouseLeft_Down" Grid.ColumnSpan="2"/>
+
+        <Border BorderBrush="{DynamicResource PageBorderBrush}" BorderThickness="1" CornerRadius="10,0,0,0" Background="{DynamicResource PageBackground}" Grid.Row="1" Grid.Column="1"/>
+
+        <Frame Visibility="Collapsed" Name="CollectionsFrame" Margin="0,0,0,10" NavigationUIVisibility="Hidden" Grid.Row="1" Grid.Column="1"/>
+
+        <Grid x:Name="HomePage" Grid.Row="1" Grid.Column="1" Margin="0,5,0,10">
+
+
+            <ScrollViewer x:Name="Home_panel" VerticalScrollBarVisibility="auto" Style="{DynamicResource ScrollViewerStyle1}">
+                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="center" x:Name="main_panel">
+
+                </WrapPanel>
+
+
+            </ScrollViewer>
+
+        </Grid>
+
+
+
+
+        <Grid x:Name="SidePane" Margin="5,5" Grid.RowSpan="2" Grid.Column="0"  Background="{DynamicResource BackGroundColor}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition />
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel  Orientation="Horizontal">
+                <Image HorizontalAlignment="Left" Margin="12,0,0,0" Height="25" VerticalAlignment="Center" Source="MainLogo.png"/>
+                <Label Margin="10,0,0,0" Content="Project - Pad" VerticalContentAlignment="Center" FontSize="14" VerticalAlignment="center" Foreground="{DynamicResource TextColor}"/>
+            </StackPanel>
+            <Separator Margin="5" Grid.Row="1"/>
+            <local:ButtonIco Margin="5" x:Name="BacktoHomeBtn"  FontSize="20" TextFontSize="16" Icon="&#xe80f;" Text="Home Page                " Visibility="Collapsed" Click="BacktoHomeBtn_Click" BorderThickness="0" MouseLeave="addBtn_MouseLeave"  MouseEnter="BacktoHomeBtn_MouseEnter" Grid.Row="2" />
+
+            <local:ButtonIco Height="35" BorderThickness="0"  FontSize="20" TextFontSize="16" Icon="&#xed0e;" Text="Add Task                   " x:Name="addBtn" Click="addBtn_Click" Margin="3"  MouseEnter="addBtn_MouseEnter" MouseLeave="addBtn_MouseLeave"  Grid.Row="3" />
+
+            <local:ButtonIco  x:Name="AddCollections" Height="35" BorderThickness="0" FontSize="20" TextFontSize="16" Icon="&#xe8f4;" Text="Add Collection          " Click="AddCollections_Click"  Margin="3" MouseEnter="AddCollections_MouseEnter" MouseLeave="addBtn_MouseLeave" Grid.Row="4"/>
+            
+            <Separator Margin="10" Grid.Row="5"/>
+            
+            <local:ButtonIco  x:Name="ToDaysCollections" Height="35" BorderThickness="0" FontSize="20" TextFontSize="16" Icon="&#xe8d1;" Text="To-Days Tasks            " Margin="3"  MouseLeave="addBtn_MouseLeave" MouseEnter="ToDaysCollections_MouseEnter" Click="ToDaysCollections_Click" Grid.Row="6"/>
+
+            <local:ButtonIco  x:Name="TomorrowCollections" Height="35" BorderThickness="0"  FontSize="20" TextFontSize="16" Icon="&#xe8f5;" Text="Tomorrow Tasks        " Margin="3"  MouseLeave="addBtn_MouseLeave" MouseEnter="TomorrowCollections_MouseEnter" Click="TomorrowCollections_Click" Grid.Row="7"/>
+            
+
+            <local:ButtonIco  x:Name="Settings" Height="35" BorderThickness="0"   FontSize="20" TextFontSize="16" Icon="&#xe713;" Text="Settings                    " VerticalAlignment="Bottom" Margin="5"   MouseLeave="addBtn_MouseLeave"   Grid.Row="8" Click="Settings_Click" MouseEnter="Settings_MouseEnter"/>
+            <Button x:Name="OpenPane" Margin="5" Grid.Row="9"
+Width="30" 
+Height="30" 
+Style="{DynamicResource TileButton}" 
+FontSize="20"  HorizontalContentAlignment="Center"
+FontFamily="pack://application:,,,/Fonts/#Segoe Fluent Icons" 
+Content="&#xea49;" BorderThickness="0"
+Foreground="{DynamicResource IconsColor}"  
+VerticalAlignment="Bottom"
+ HorizontalAlignment="Right" Click="OpenPane_Click" >
+            </Button>
+
+        </Grid>
+        <Popup x:Name="Popup"  AllowsTransparency="True"  HorizontalOffset="0" VerticalOffset="10">
+            <localControls:CustomPopup x:Name="Header" Foreground="{DynamicResource TextColor}" />
+        </Popup>
+
+
+
+
+    </Grid>
+
+
+
+
+</Window>

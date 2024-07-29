@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>ProjectPadIcon2.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\Segoe Fluent Icons.ttf" />
+    <None Remove="MainLogo.png" />
+    <None Remove="ProjectPadIcon.png" />
+    <None Remove="Ustaad trayIcon2.ico" />
+    <None Remove="USTAADLogo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="ProjectPadIcon.png" />
+    <Content Include="ProjectPadIcon2.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Notifications.Wpf.Core" Version="1.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\Segoe Fluent Icons.ttf" />
+    <Resource Include="Logo.png" />
+    <Resource Include="MainLogo.png" />
+    <Resource Include="Ustaad trayIcon2.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>
