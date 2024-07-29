@@ -1,0 +1,133 @@
+﻿<Border x:Class="projectPad.Controls.ColorPicker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+           
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"  
+             mc:Ignorable="d" BorderBrush="Gray" BorderThickness="1" Background="{DynamicResource BackGroundColor}"  
+             Height="200" Width="340">
+    <Border.Resources>
+       
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style TargetType="{x:Type ToggleButton}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="white"/>
+            
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Segoe Fluent Icons"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontWeight" Value="ExtraBold"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border CornerRadius="10" x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+
+                                <Setter Property="BorderThickness" TargetName="border" Value="2"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                               
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Border.Resources>
+    
+    
+    <Grid ClipToBounds="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label FontSize="16" Content="Add Color Theme" HorizontalAlignment="Center" Foreground="{DynamicResource TextColor}"/>
+        <ScrollViewer Style="{DynamicResource ScrollViewerStyle1}" BorderBrush="Black" BorderThickness="1" Grid.Row="1">
+            <WrapPanel HorizontalAlignment="Center">
+                <!-- Define your accent colors here -->
+                <ToggleButton Background="#ffb900" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton   Background="#ff8c00" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton   Background="#f7630c" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton   Background="#ca5010" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton   Background="#ef6950" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton   Background="#d13438" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton   Background="#ff4343" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton   Background="#e74856" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton   Background="#e81123" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton   Background="#ea005e" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton   Background="#c30052" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton   Background="#e3008c" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton   Background="#bf0077" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#c239b3" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#9a0089" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+
+
+
+                <ToggleButton Background="#0078d7" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#0063b1" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton  Background="#8e8cd8" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#6b69d6" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#8764b8" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#744da9" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#b146c2" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#881798" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#0099bc" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#2d7d9a" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#00b7c3" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#038387" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#00b294" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#018574" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#00cc6a" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+
+
+
+
+                <ToggleButton Background="#7a7574" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#5d5a58" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#68768a" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#4a5459" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#567c73" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#486860" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#498205" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#107c10" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#767676" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#4c4a48" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#69797e" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#4a5459" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#647c64" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#525e54" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <ToggleButton Background="#847545" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+
+                <ToggleButton Background="#7e735f" Click="ColorButton_Click" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked"/>
+                <!-- Add more colors as needed -->
+            </WrapPanel>
+        </ScrollViewer>
+    </Grid>
+</Border>

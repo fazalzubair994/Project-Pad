@@ -1,0 +1,239 @@
+﻿<Border
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:local="clr-namespace:projectPad.Controls"
+      xmlns:local2="clr-namespace:Project_Pad.Controls"
+        xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+        xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf" x:Class="projectPad.Controls.ButtonTile"
+        mc:Ignorable="d"   MinWidth="400" MinHeight="300"
+        BorderThickness="0" BorderBrush="#616161"
+        CornerRadius="10,10,0,0" Width="200" 
+        Background="{DynamicResource TileBackground}" 
+        d:DesignHeight="200" d:DesignWidth="200" Loaded="Border_Loaded">
+
+    <Border.Effect>
+        <DropShadowEffect Color="Black" BlurRadius="5" Direction="0" Opacity="100" RenderingBias="Performance" ShadowDepth="1.5"/>
+    </Border.Effect>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+
+
+
+
+        <StackPanel Margin="20,20,20,0">
+            <TextBox  x:Name="NoteTitle" TextWrapping="Wrap"
+                                 FontSize="20" 
+                      FontWeight="Heavy"
+                                 Padding="10,0,0,0" 
+                                 Margin="10" 
+                                 Background="Transparent" 
+                                 BorderThickness="0" 
+                                 Foreground="{DynamicResource TextColor}"
+                                 FontFamily="Segoe UI" IsReadOnly="True"/>
+            <!-- Use a ScrollViewer around the CustomTextBox for notes -->
+            <ScrollViewer Style="{DynamicResource ScrollViewerStyle1}" Grid.Row="1" VerticalScrollBarVisibility="Auto" Height="180" Margin="10,0,20,0">
+                <TextBox x:Name="NoteText" IsReadOnly="True"   TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True"
+                                     FontSize="14" 
+                                     Padding="10,0,0,10" 
+                                     Background="Transparent" 
+                                     BorderThickness="0" 
+                                     Foreground="{DynamicResource TextColor}"
+                                     FontFamily="Calibiri"/>
+            </ScrollViewer>
+        </StackPanel>
+
+        <Grid Background="{DynamicResource TileBottomColor}" Margin="0,0,0,0" Grid.Row="1" Height="60" ClipToBounds="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Margin="10,0,0,0"  HorizontalAlignment="left" VerticalAlignment="Center">
+                <Label x:Name="DateCreated" Foreground="{DynamicResource TextColor}" Content="12/04/20204     9:12 PM" FontWeight="Bold"  />
+
+                <StackPanel x:Name="DueandReminderPanel" Margin="0,0,0,5" Orientation="Horizontal">
+                    <Border x:Name="DueDateControl" HorizontalAlignment="left" CornerRadius="5"  Width="130" BorderBrush="HotPink" BorderThickness="0,0,0,1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <Label  FontFamily="pack://application:,,,/Fonts/#Segoe Fluent Icons" 
+Content="&#xe7ba;" Foreground="HotPink" VerticalContentAlignment="Center" FontSize="14"  />
+                            <Label x:Name="DueDate" Grid.Column="1" Foreground="{DynamicResource TextColor}" Content="12 July 2024" FontWeight="Bold" FontSize="12"  />
+                            <Button x:Name="DeleteDueDate"  Grid.Column="2"
+Width="15" 
+Height="15" 
+  Style="{DynamicResource TileButton}" 
+FontSize="12" 
+FontFamily="pack://application:,,,/Fonts/#Segoe Fluent Icons" 
+Content="&#xe711;" 
+Foreground="{DynamicResource TextColor}"
+BorderThickness="0" Click="DeleteDueDate_Click" />
+                        </Grid>
+                    </Border>
+
+                    <Border x:Name="ReminderControl" Margin="20,0" HorizontalAlignment="left" CornerRadius="5"  Width="130" BorderBrush="Green" BorderThickness="0,0,0,1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Label  FontFamily="pack://application:,,,/Fonts/#Segoe Fluent Icons" 
+Content="&#xea8f;" Foreground="Green" VerticalContentAlignment="Center" FontSize="14"  />
+                            <Label x:Name="ReminderDate" Foreground="{DynamicResource TextColor}" Content="12 July 2024" FontWeight="Bold" FontSize="12" Grid.Column ="1" />
+                            <Button  x:Name="DeleteReminder" Grid.Column="2"
+Width="15" 
+Height="15" 
+  Style="{DynamicResource TileButton}" 
+FontSize="12" 
+FontFamily="pack://application:,,,/Fonts/#Segoe Fluent Icons" 
+Content="&#xe711;" 
+Foreground="{DynamicResource TextColor}"
+BorderThickness="0" Click="DeleteReminder_Click" />
+                        </Grid>
+                    </Border>
+
+
+
+                </StackPanel>
+                            
+                
+
+            </StackPanel>
+
+            <StackPanel  Margin="20,10,15,10" Orientation="Horizontal" HorizontalAlignment="right" Grid.Column="1">
+
+                <Button x:Name="DelteBtn" Margin="0,0,5,0" 
+            Width="30" 
+            Height="30" 
+              Style="{DynamicResource TileButton}" 
+            FontSize="16" 
+            FontFamily="pack://application:,,,/Fonts/#Segoe Fluent Icons" 
+            Content="&#xE74D;" 
+            Foreground="#FFFFFF" 
+             Background="#E81123" 
+            BorderThickness="0" Click="Button_Click" />
+                <Button x:Name="EditBtn" 
+            Width="30" 
+            Height="30" 
+            Style="{DynamicResource TileButton}" 
+            FontSize="16" 
+            FontFamily="pack://application:,,,/Fonts/#Segoe Fluent Icons" 
+            Content="&#xE70F;" 
+            Foreground="#FFFFFF" 
+            Background="#007ACC" 
+            BorderThickness="0" Click="EditBtn_Click" />
+                <Button x:Name="OpenBtn" Margin="5,0,0,0"  Visibility="Collapsed"
+            Width="30" 
+            Height="30" 
+            Style="{DynamicResource TileButton}" 
+            FontSize="16" 
+            FontFamily="pack://application:,,,/Fonts/#Segoe Fluent Icons" 
+            Content="&#xE8DE;" 
+            Foreground="#FFFFFF" 
+           
+            Background="#007ACC" 
+            BorderThickness="0" Click="OpenBtn_Click"  />
+            </StackPanel>
+
+        </Grid>
+
+        <Popup x:Name="Popup"  AllowsTransparency="True"  HorizontalOffset="0" VerticalOffset="10">
+            <local:CustomPopup x:Name="Header" Foreground="{DynamicResource TextColor}"/>
+        </Popup>
+        <Popup x:Name="colorPickerPopup" Placement="Mouse" StaysOpen="False">
+            <local:ColorPicker ColorSelected="ColorPicker_ColorSelected" />
+        </Popup>
+        <Popup x:Name="DatePickerPopup" Placement="Mouse" StaysOpen="False">
+            <local2:CustomDatePicker DateSelected="CustomDatePicker_DateSelected"/>
+        </Popup>
+
+        <Popup x:Name="MovePopup" Placement="Mouse" StaysOpen="False">
+            <local2:MoveControl x:Name="MoveControl" NoteIsMoved="MoveControl_NoteIsMoved" />
+        </Popup>
+
+
+        <StackPanel  HorizontalAlignment="right" VerticalAlignment="top" Margin="5,10" Orientation="Vertical">
+            <Label x:Name="typeName" FontSize="20" Width="30" Height="30" 
+            FontFamily="pack://application:,,,/Fonts/#Segoe Fluent Icons" HorizontalContentAlignment="Center"
+            Content="&#xE70B;" Foreground="{DynamicResource TextColor}" HorizontalAlignment="Center" />
+            <CheckBox x:Name="isCompleted" HorizontalAlignment="Center" Style="{DynamicResource CheckBoxStyle1}" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" Click="isCompleted_Click" ToolTip="Complete Status..." Background="Transparent" />
+
+            <Button  Margin="5,5,5,0" x:Name="OpenPanel"  
+Width="25" 
+Height="25" 
+Style="{DynamicResource TileButton}" 
+FontSize="18" HorizontalAlignment="Center" 
+FontFamily="pack://application:,,,/Fonts/#Segoe Fluent Icons" 
+Content="&#xE70D;" 
+Foreground="{DynamicResource TextColor}"
+       Background="Transparent"
+BorderThickness="0" Click="OpenPanel_Click" />
+            
+            <StackPanel x:Name="OtherUIPanel" Height="0" >
+                <Button  x:Name="OpenDatePicker" Margin="0,3"
+Width="25" 
+Height="25"  
+Style="{DynamicResource TileButton}" 
+FontSize="18" HorizontalAlignment="Center" 
+FontFamily="pack://application:,,,/Fonts/#Segoe Fluent Icons" 
+Content="&#xE787;" 
+Foreground="{DynamicResource TextColor}"  Background="Transparent"
+       
+BorderThickness="0" Click="OpenDatePicker_Click_1" MouseEnter="OpenDatePicker_MouseEnter" MouseLeave="OpenDatePicker_MouseLeave"  />
+
+
+                <Button  x:Name="AddReminder" Margin="0,3"
+Width="25" 
+Height="25"  
+Style="{DynamicResource TileButton}" 
+FontSize="18" HorizontalAlignment="Center" 
+FontFamily="pack://application:,,,/Fonts/#Segoe Fluent Icons" 
+Content="&#xeb50;" 
+Foreground="{DynamicResource TextColor}"  Background="Transparent"
+       
+BorderThickness="0"  MouseLeave="OpenDatePicker_MouseLeave" Click="AddReminder_Click" MouseEnter="AddReminder_MouseEnter"  />
+
+
+                <Button  Margin="0,3" x:Name="ColorPickerbtn"
+Width="25" 
+Height="25" 
+Style="{DynamicResource TileButton}" 
+FontSize="18" HorizontalAlignment="Center" 
+FontFamily="pack://application:,,,/Fonts/#Segoe Fluent Icons" 
+Content="&#xE790;" 
+Foreground="{DynamicResource TextColor}" Background="Transparent"
+BorderThickness="0" Click="ColorPickerbtn_Click" MouseEnter="ColorPickerbtn_MouseEnter" MouseLeave="OpenDatePicker_MouseLeave" />
+
+                <Button  Margin="0,3" x:Name="MoveToBtn"
+Width="25" 
+Height="25" 
+Style="{DynamicResource TileButton}" 
+FontSize="18" HorizontalAlignment="Center" 
+FontFamily="pack://application:,,,/Fonts/#Segoe Fluent Icons" 
+Content="&#xe8de;" 
+Foreground="{DynamicResource TextColor}"  Background="Transparent"
+BorderThickness="0" MouseLeave="OpenDatePicker_MouseLeave" Click="MoveToBtn_Click" />
+            </StackPanel>
+
+
+        </StackPanel>
+
+        <Label x:Name="StatColor"  FontFamily="pack://application:,,,/Fonts/#Segoe Fluent Icons" 
+ Content="&#xf5ab;" HorizontalAlignment="Left" FontSize="20" Foreground="{DynamicResource TextColor}" VerticalAlignment="Top"  >
+        </Label>
+
+       
+    </Grid>
+</Border>
